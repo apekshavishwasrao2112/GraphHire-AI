@@ -3,11 +3,12 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FiCompass, FiHome, FiLayers, FiMoon, FiSun, FiUsers } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
 
-const navItems = [
-  { to: '/', label: 'Home', icon: FiHome },
-  { to: '/dashboard', label: 'Dashboard', icon: FiCompass },
-  { to: '/developers', label: 'Developers', icon: FiUsers },
-  { to: '/analytics', label: 'Analytics', icon: FiLayers },
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'Dashboard', href: '/dashboard' },
+  { name: 'Developers', href: '/developers' },
+  { name: 'Graph', href: '/graph' },
+  { name: 'Analytics', href: '/analytics' },
 ];
 
 export default function MainLayout() {
