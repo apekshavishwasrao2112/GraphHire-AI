@@ -33,34 +33,23 @@ export default function MainLayout() {
               Graph-powered talent intelligence
             </p>
           </div>
-
-          <nav className="flex items-center gap-2">
-            {navigation.map(({ href, name, icon: Icon }) => (
-              <NavLink
-                key={href}
-                to={href}
-                className={({ isActive }) =>
-                  `flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition ${
-                    isActive
-                      ? 'bg-cyan-500/20 text-cyan-200 shadow-lg shadow-cyan-500/10'
-                      : 'text-slate-300 hover:bg-white/10'
-                  }`
-                }
-              >
-                <Icon size={16} />
-                <span>{name}</span>
-              </NavLink>
-            ))}
-
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="ml-2 rounded-full p-2 text-slate-300 transition hover:bg-white/10 hover:text-white"
-              aria-label="Toggle theme"
+          <nav className="flex max-w-full gap-1 overflow-x-auto sm:gap-2">
+          {navigation.map(({ name, href }) => (
+            <NavLink
+              key={href}
+              to={href}
+              className={({ isActive }) =>
+                `flex shrink-0 items-center rounded-full px-3 py-2 text-sm font-medium transition sm:px-4 ${
+                  isActive
+                    ? 'bg-cyan-500/20 text-cyan-200 shadow-lg shadow-cyan-500/10'
+                    : 'text-slate-300 hover:bg-white/10'
+                }`
+              }
             >
-              {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
-            </button>
-          </nav>
+              {name}
+            </NavLink>
+          ))}
+        </nav>
         </div>
       </header>
 
