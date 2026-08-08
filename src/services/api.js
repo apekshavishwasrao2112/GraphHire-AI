@@ -21,4 +21,10 @@ export const fetchSearch = (query) =>
     params: { q: query },
   });
 
+// NEW: Search the actual graph
+export const fetchGraphSearch = (query) =>
+  api.get('/graph/search', {
+    params: { q: query },
+  });
+
 export default api;
