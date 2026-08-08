@@ -2,7 +2,7 @@
 
 from flask import Blueprint, jsonify, request
 
-from services.developer_service import DeveloperService
+from backend.services.developer_service import DeveloperService
 
 developer_bp = Blueprint("developer_bp", __name__, url_prefix="")
 service = DeveloperService()

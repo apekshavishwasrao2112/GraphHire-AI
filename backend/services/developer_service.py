@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from database import db
-from queries.developer_queries import (
+from backend.database import db
+from backend.queries.developer_queries import (
     COMPANY_EMPLOYEES,
     DEVELOPER_CAREER,
     GRAPH_PATH,

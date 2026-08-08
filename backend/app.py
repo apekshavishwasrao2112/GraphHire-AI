@@ -2,10 +2,10 @@
 
 from flask import Flask
 
-from config import Config
-from database import db
-from middleware.error_handlers import register_error_handlers
-from routes import register_blueprints
+from backend.config import Config
+from backend.database import db
+from backend.middleware.error_handlers import register_error_handlers
+from backend.routes import register_blueprints
 
 def create_app(config_class: type[Config] | None = None) -> Flask:
     """Create and configure the Flask application instance."""
