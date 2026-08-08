@@ -365,18 +365,78 @@ The dashboard provides a high-level overview of the graph including developer, c
 
 ## Developer Directory
 
-Users can search and explore developers by name, email, or other available signals.
+Users can search and explore developers by name or email.
 
 Example information includes:
 
 * Developer name
 * Email
 * Experience
-* Location
-* Company
-* Skills
-* Technologies
 * Professional description
+* Available graph-related information
+
+The directory also provides filtering for senior developers.
+
+## Graph Explorer
+
+The Graph section provides an interactive visualization of relationships returned from the live graph database.
+
+Users can search for a:
+
+* Developer
+* Company
+* Skill
+* Technology
+* Project
+* Certification
+* Location
+
+The graph visualization is designed to remain readable even when a search result has many relationships.
+
+For developer-focused searches:
+
+```text
+                    Company
+                       │
+                       │ WORKED_AT
+                       │
+Skill ── HAS_SKILL ── Developer ── BUILT ── Project
+                       │
+                       │ USES
+                       │
+                  Technology
+```
+
+The searched developer is positioned as the central node, while related entities are arranged around it according to their graph type.
+
+The Graph Explorer also:
+
+* Limits the number of displayed nodes for readability.
+* Limits displayed relationships to prevent an overcrowded graph.
+* Uses different visual styles for different node types.
+* Provides zoom and pan controls through React Flow.
+* Provides a minimap for navigating the graph.
+* Displays the actual relationship type on graph edges.
+* Provides a loading state while graph data is being retrieved.
+* Provides an empty state when no matching graph data is found.
+* Allows users to click individual nodes for inspection.
+
+This approach keeps the graph useful for human exploration instead of displaying an unnecessarily large and difficult-to-read network.
+
+## Analytics
+
+The analytics section presents graph-related information through visual summaries and charts.
+
+## Recommendations
+
+The application provides developer recommendation functionality based on graph relationships and shared signals.
+
+## Search
+
+The search functionality allows the frontend to query developers and graph entities based on user input.
+
+
+
 
 ## Graph Explorer
 
@@ -664,7 +724,6 @@ The project follows the following security practices:
 * Production secrets are configured through hosting-platform environment variables.
 
 ---
-
 # 20. UI / UX
 
 GraphHire AI was designed as a modern SaaS-style application rather than a basic CRUD interface.
@@ -673,10 +732,14 @@ The interface includes:
 
 * Responsive navigation
 * Dashboard cards
-* Search functionality
+* Developer search
 * Developer directory
-* Graph visualization
-* Analytics
+* Developer filtering
+* Interactive graph visualization
+* Center-focused graph layout
+* Node-type visual differentiation
+* Graph zoom and pan controls
+* Graph minimap
 * Loading states
 * Empty states
 * Error states
@@ -684,7 +747,11 @@ The interface includes:
 * Dark/light theme support
 * Interactive transitions and animations
 
-The application is designed to be usable by a non-technical user who wants to explore developer and talent relationships.
+The Graph Explorer intentionally limits the visible graph to keep large relationship networks readable.
+
+Instead of displaying every connected relationship at once, the visualization focuses on the most relevant returned nodes and relationships and arranges them around the searched entity.
+
+This makes the graph easier to understand and demonstrates the underlying graph relationships without overwhelming the user with hundreds of nodes and edges.
 
 ---
 
